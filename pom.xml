@@ -6,7 +6,12 @@
 
     <groupId>cn.edu.nbu.fan</groupId>
     <artifactId>spring-boot-test-fan</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>cache</module>
+        <module>bootapplication</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -54,6 +59,11 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>cn.edu.nbu.fan</groupId>
+            <artifactId>cache</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!--log4j2日志配置-->
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->

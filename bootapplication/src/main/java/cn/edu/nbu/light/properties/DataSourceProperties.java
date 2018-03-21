@@ -1,5 +1,6 @@
 package cn.edu.nbu.light.properties;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ConfigurationProperties(prefix = "spring.datasource")
+@Data
 public class DataSourceProperties {
     private String url;
     private String userName;
@@ -20,29 +22,5 @@ public class DataSourceProperties {
         System.out.println("spring.datasource.url=" + this.url);
         System.out.println("spring.datasource.userName=" + this.userName);
         System.out.println("spring.datasource.password=" +this.password);
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

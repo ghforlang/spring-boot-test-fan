@@ -10,7 +10,7 @@
         </Console>
     </appenders>
     <loggers>
-        <logger name="cn.edu.nbu.light.*" level="debug" />
+        <logger name="light.*" level="debug" />
         <root level="info">
             <appenderref ref="CONSOLE" />
         </root>
