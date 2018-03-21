@@ -9,6 +9,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
 
 /**
  * @author fanwh
@@ -17,8 +18,11 @@ import org.springframework.context.annotation.ComponentScan;
  * @create on 2018/3/20 16:14
  */
 @SpringBootApplication
-//@ComponetScan默认加载当前包的class，如需指定要加value值
-@ComponentScan(value = "cn.edu.nbu")
+//@ComponetScan默认加载当前包的class，如需指定要加value值(value = "cn.edu.nbu")，
+//或者采用@Import()直接导入
+//或者采用spring.factories方式，详情参考spring.factories
+//@ComponentScan(value = "cn.edu.nbu")
+//@Import(CacheConfiguration.class)
 public class SpringbootApplication  extends SpringBootServletInitializer{
 
     @Override
