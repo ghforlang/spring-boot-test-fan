@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>boot-application</artifactId>
-    <version>0.0.1</version>
-
+    <artifactId>boot-cache</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 </project>
