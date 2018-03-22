@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+cn.edu.nbu.light.config.ConvertorConfiguration
+
+
+
+#多个config用","隔开
+#cn.edu.nbu.config.CacheConfiguration

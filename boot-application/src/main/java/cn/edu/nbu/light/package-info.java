@@ -22,5 +22,21 @@ package cn.edu.nbu.light;
  @ImportResource                # 加载 xml 文件
  */
 
+/**
+ * spring boot 常用conditional注解
+ * @ConditionalOnBean              # 当指定 Bean 存在时进行装配
+ @ConditionalOnMissingBean       # 当指定 Bean 不存在时进行装配
+ @ConditionalOnClass             # 当指定 Class 在 classpath 中时进行装配
+ @ConditionalOnMissingClass      # 当指定 Class 不在 classpath 中时进行装配
+ @ConditionalOnExpression        # 根据 SpEL 表达式进行装配
+ @ConditionalOnJava              # 根据 JVM 版本进行装配
+ @ConditionalOnJndi              # 根据 JNDI 进行装配
+ @ConditionalOnWebApplication    # 当上下文是 WebApplication 时进行装配
+ @ConditionalOnNotWebApplication # 当上下文不是 WebApplication 时进行装配
+ @ConditionalOnProperty          # 当指定的属性名的值为指定的值时进行装配
+ @ConditionalOnResource          # 当指定的资源在 classpath 中时进行装配
+ @ConditionalOnCloudPlatform     #
+ @ConditionalOnSingleCandidate   #
+ */
 //博客地址
 //https://www.extlight.com/2017/11/23/Spring-Boot-%E5%85%A5%E9%97%A8%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/
