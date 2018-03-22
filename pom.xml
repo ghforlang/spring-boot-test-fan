@@ -8,9 +8,6 @@
     <artifactId>spring-boot-test-fan</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>boot-application</module>
-    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,13 +16,7 @@
         <java.version>1.8</java.version>
     </properties>
 
-    <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-            </dependency>
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -36,13 +27,14 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-devtools</artifactId>
-                <optional>true</optional>
-                <scope>true</scope>
+                <version>${spring-boot.version}</version>
+                <!--<scope>provided</scope>-->
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>2.0.0.RELEASE</version>
                 <optional>true</optional>
             </dependency>
 
@@ -50,7 +42,7 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.16.20</version>
-                <scope>provided</scope>
+                <!--<scope>provided</scope>-->
             </dependency>
 
             <!--log4j2日志配置-->
@@ -58,15 +50,7 @@
             <!--<groupId>org.springframework.boot</groupId>-->
             <!--<artifactId>spring-boot-starter-log4j2</artifactId>-->
             <!--</dependency>-->
-            <dependency>
-                <groupId>cn.edu.nbu.fan</groupId>
-                <artifactId>boot-cache</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
         </dependencies>
-
-    </dependencyManagement>
-
 
     <build>
         <pluginManagement>
@@ -75,29 +59,37 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
+                    <version>3.3.9</version>
+                    <configuration>
+                        <attach>true</attach>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>3.3.9</version>
+                    <configuration>
+                        <skip>false</skip>
+                    </configuration>
                 </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
-                        <encoding>UTF-8</encoding>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
                     </configuration>
                 </plugin>
-
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <configuration>
-                        <!--没有改配置，devtools不生效-->
-                        <fork>true</fork>
-                    </configuration>
-                </plugin>
-
             </plugins>
         </pluginManagement>
 
     </build>
+
+    <modules>
+        <module>boot-application</module>
+        <module>boot-cache</module>
+    </modules>
 </project>
