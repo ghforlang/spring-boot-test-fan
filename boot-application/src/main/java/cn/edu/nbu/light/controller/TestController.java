@@ -37,7 +37,8 @@ public class TestController {
         return "param_id : " + id;
     }
 
-    //注解@RequestAttribute可以被用于访问由过滤器或拦截器创建的、预先存在的请求属性
+    //注解@RequestAttribute可以被用于访问由过滤器或拦截器创建的、预先存在的请求属性；
+    // @RequestAttribute用于访问由过滤器或拦截器创建的、预先存在的请求属性，效果等同与request.getAttrbute()
     @GetMapping("/req/attr")
     public String requestAttr(@RequestAttribute("id") String id){
         return "request_id : " + id;

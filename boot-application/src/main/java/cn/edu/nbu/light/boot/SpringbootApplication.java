@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,6 +17,7 @@ import cn.edu.nbu.light.config.DBConfig;
 import cn.edu.nbu.light.convertor.Convertor;
 import cn.edu.nbu.light.properties.DataSourceProperties;
 import cn.edu.nbu.util.JsonUtils;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author fanwh
@@ -30,6 +32,8 @@ import cn.edu.nbu.util.JsonUtils;
 //@Import(CacheConfiguration.class)
 @ComponentScan(value = "cn.edu.nbu")
 @PropertySource(value="classpath:conf/application-dev.properties",encoding="utf-8")
+@ServletComponentScan
+@Slf4j
 public class SpringbootApplication  extends SpringBootServletInitializer{
 
     @Override
@@ -42,24 +46,25 @@ public class SpringbootApplication  extends SpringBootServletInitializer{
 
 
         //DB TEST
-        System.out.println("DB TEST--------");
-        context.getBean(DBConfig.class).show();
-        context.getBean(DataSourceProperties.class).show();
+//        System.out.println("DB TEST--------");
+//        context.getBean(DBConfig.class).show();
+//        context.getBean(DataSourceProperties.class).show();
 
         //Cache TEST
-        System.out.println("Cache TEST--------");
-        CacheConfiguration ccf = context.getBean(CacheConfiguration.class);
-        Cache cache = context.getBean(Cache.class);
-        System.out.println(JsonUtils.toJSON(cache));
+//        System.out.println("Cache TEST--------");
+//        CacheConfiguration ccf = context.getBean(CacheConfiguration.class);
+//        Cache cache = context.getBean(Cache.class);
+//        System.out.println(JsonUtils.toJSON(cache));
 
         //Convertor TEST
-        System.out.println("Convertor TEST--------");
-          Map<String,Convertor> map = context.getBeansOfType(Convertor.class);
-          System.out.println(JsonUtils.toJSON(map));
+//        System.out.println("Convertor TEST--------");
+//          Map<String,Convertor> map = context.getBeansOfType(Convertor.class);
+//          System.out.println(JsonUtils.toJSON(map));
 
         //condition TEST
-        System.out.println("condition TEST--------");
-        Map<String,Convertor> conditionMap = context.getBeansOfType(Convertor.class);
-        System.out.println(JsonUtils.toJSON(conditionMap));
+//        System.out.println("condition TEST--------");
+//        Map<String,Convertor> conditionMap = context.getBeansOfType(Convertor.class);
+//        System.out.println(JsonUtils.toJSON(conditionMap));
+        log.info("application启动成功!");
     }
 }

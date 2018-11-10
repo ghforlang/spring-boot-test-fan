@@ -1,10 +1,11 @@
 package cn.edu.nbu.light.config;
 
-import cn.edu.nbu.light.util.TestFunctionnal;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
+
+import cn.edu.nbu.light.util.TestFunctionnal;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author fanwh
@@ -13,12 +14,13 @@ import org.springframework.context.annotation.PropertySource;
  * @create on 2018/3/20 17:39
  */
 @Configuration
+@Slf4j
 public class BeanConfiguration {
 
     @Bean
     @Profile("dev")
     public Runnable dev(){
-        System.out.println("开发环境使用Bean");
+        log.info("开发环境使用Bean");
         return ()->{};
     }
 
@@ -26,21 +28,21 @@ public class BeanConfiguration {
     @Bean
     @Profile("dev")
     public TestFunctionnal functionalDev(){
-        System.out.println("test FunctionalInterface!");
+        log.info("test FunctionalInterface!");
         return ()->{};
     }
 
     @Bean
     @Profile("test")
     public Runnable test(){
-        System.out.println("测试环境使用Bean");
+        log.info("测试环境使用Bean");
         return () -> {};
     }
 
     @Bean
     @Profile("prod")
     public Runnable produrce(){
-        System.out.println("生产环境使用Bean");
+        log.info("生产环境使用Bean");
         return () ->{};
     }
 
