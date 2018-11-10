@@ -16,12 +16,11 @@ import org.springframework.context.annotation.Configuration;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * TODO
  * @author fanwenhao
  * @version V1.0
  * @since 2018-11-10 18:07
  */
-//监听器配置不生效，原因暂未知
+//@WebListener注解不生效，需要同时配置@Configuration注解
 @WebListener
 @Slf4j
 @Configuration
