@@ -15,12 +15,12 @@ import org.springframework.stereotype.Component;
 @Data
 public class DataSourceProperties {
     private String url;
-    private String userName;
+    private String username;
     private String password;
 
     public void show(){
         System.out.println("spring.datasource.url=" + this.url);
-        System.out.println("spring.datasource.userName=" + this.userName);
+        System.out.println("spring.datasource.username=" + this.username);
         System.out.println("spring.datasource.password=" +this.password);
     }
 }
