@@ -1,9 +1,9 @@
-package cn.edu.nbu.light.boot;
-
-import java.util.Map;
+package cn.edu.nbu.light;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
@@ -11,12 +11,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
-import cn.edu.nbu.cache.Cache;
-import cn.edu.nbu.config.CacheConfiguration;
 import cn.edu.nbu.light.config.DBConfig;
-import cn.edu.nbu.light.convertor.Convertor;
 import cn.edu.nbu.light.properties.DataSourceProperties;
-import cn.edu.nbu.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -25,13 +21,13 @@ import lombok.extern.slf4j.Slf4j;
  * @decription
  * @create on 2018/3/20 16:14
  */
-@SpringBootApplication
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class,DataSourceTransactionManagerAutoConfiguration.class})
 //@ComponetScan默认加载当前包的class，如需指定要加value值(value = "cn.edu.nbu")，
 //或者采用@Import()直接导入
 //或者采用spring.factories方式，详情参考spring.factories
-//@Import(CacheConfiguration.class)
 @ComponentScan(value = "cn.edu.nbu")
 @PropertySource(value="classpath:conf/application-dev.properties",encoding="utf-8")
+//@Import(DBConfig.class)
 @ServletComponentScan
 @Slf4j
 public class SpringbootApplication  extends SpringBootServletInitializer{
