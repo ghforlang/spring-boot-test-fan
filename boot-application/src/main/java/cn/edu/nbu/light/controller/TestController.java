@@ -3,6 +3,7 @@ package cn.edu.nbu.light.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @decription
  * @create on 2018/3/20 16:15
  */
-@RestController
+@RestController("test")
+@RequestMapping("/test")
 public class TestController {
 
     @GetMapping("/helloworld")
@@ -43,4 +45,5 @@ public class TestController {
     public String requestAttr(@RequestAttribute("id") String id){
         return "request_id : " + id;
     }
+
 }

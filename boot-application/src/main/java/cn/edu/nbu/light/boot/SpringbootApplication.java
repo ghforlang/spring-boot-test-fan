@@ -46,9 +46,9 @@ public class SpringbootApplication  extends SpringBootServletInitializer{
 
 
         //DB TEST
-//        System.out.println("DB TEST--------");
-//        context.getBean(DBConfig.class).show();
-//        context.getBean(DataSourceProperties.class).show();
+        System.out.println("DB TEST--------");
+        context.getBean(DBConfig.class).show();
+        context.getBean(DataSourceProperties.class).show();
 
         //Cache TEST
 //        System.out.println("Cache TEST--------");
